@@ -1,7 +1,15 @@
-import React from "react";
+import { Flex, Center } from "@chakra-ui/react";
+import MainMenu from "../components/main_menu";
 
-function gear() {
-  return <div>List of all available Gear</div>;
+function Gear() {
+  return (<Flex height="100vh" direction="column">
+  <MainMenu></MainMenu>
+
+  <Center mt={10} paddingBottom={20}>
+    
+   Detailed list of available gear along with permissions.
+  </Center>
+</Flex>)  
 }
 
-export default gear;
+export default Gear;

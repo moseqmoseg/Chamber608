@@ -1,12 +1,17 @@
-import React from "react";
+import { Flex, Center } from "@chakra-ui/react";
+import MainMenu from "../components/main_menu";
 
-function payments() {
+function Payments() {
   return (
-    <div>
+    <Flex height="100vh" direction="column">
+      <MainMenu></MainMenu>
+      <Center mt={10} pb={20}>
       Here is where you pay your monthly rent and change payment methods or
       amount.
-    </div>
+      </Center>
+      
+    </Flex>
   );
 }
 
-export default payments;
+export default Payments;
