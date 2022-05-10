@@ -19,7 +19,7 @@ function Home() {
       <MainMenu></MainMenu>
 
       <Center mt={10} paddingBottom={20}>
-        <SimpleGrid columns={2} spacing={10}>
+        <SimpleGrid columns={2} spacing={7}>
           <LinkBox
             color={"white"}
             as="article"
@@ -37,11 +37,9 @@ function Home() {
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               height: "300px",
-              
             }}
           >
-            <Flex direction={"column"} justify="center" fontSize="15.6px" 
-           >
+            <Flex direction={"column"} justify="center" fontSize="15.6px">
               <Heading size="lg" my="2">
                 <LinkOverlay href="/calendar">Calendar</LinkOverlay>
               </Heading>
@@ -76,7 +74,7 @@ function Home() {
               </Heading>
               <Text>
                 Check out a detailed list of available gear,add new gear, check
-                to see if you have permission to use other member's gear
+                to see if you have permission to use other member`s gear
               </Text>
             </Flex>
           </LinkBox>
