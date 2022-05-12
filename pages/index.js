@@ -127,7 +127,7 @@ function Home() {
           >
             <Flex direction={"column"} justify="center" fontSize="15.6px">
               <Heading size="lg" my="2">
-                <LinkOverlay href="/[profile]">My Profile</LinkOverlay>
+                <LinkOverlay href="/profile">My Profile</LinkOverlay>
               </Heading>
               <Text>
                 Manage your profile, change your picture,update your email or
