@@ -35,14 +35,19 @@ const MainCalendar = () => {
             "6imscvc8son2g9n8vpb09mhtj8@group.calendar.google.com",
         }}
         timeZone="Europe/Berlin"
+        initialView= 'timeGridWeek'
+        eventColor={"#7f5ad6"}
         editable
         selectable
-        height={"auto"}
-        titleFormat={{ day: "2-digit", month: "short", year: "numeric" }}
+        
+        
+        
+        nowIndicator={true}
+        // titleFormat={{ day: "2-digit", month: "short", year: "numeric" }}
         customButtons={{
           myCustomButton: {
             text: "Book a Session",
-            
+
             click: function () {
               onOpen();
             },
@@ -53,14 +58,15 @@ const MainCalendar = () => {
           setselectedTime(info.dateStr);
           console.log(selectedTime);
         }}
-        headerToolbar={{ center: "myCustomButton" }}
+        headerToolbar={{left:"myCustomButton" ,center:'title', right:"prev,next"  }}
+        
       />
-      <Modal isOpen={isOpen} onClose={onClose} >
+      <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent >
+        <ModalContent>
           <ModalHeader bgColor={"purple.500"}>Book Your Session</ModalHeader>
           <ModalCloseButton />
-          <ModalBody  pb={6}>
+          <ModalBody pb={6}>
             <FormControl>
               <FormLabel>Start</FormLabel>
               <Input
@@ -88,6 +94,7 @@ const MainCalendar = () => {
             <Button
               onClick={() => {
                 onClose();
+                fe
               }}
               colorScheme="purple"
               mr={3}

@@ -20,7 +20,7 @@ import Link from "next/link";
 function Profile() {
   const { user } = useAuth();
   return (
-    <Flex height="100vh" direction={"column"}>
+    <Flex height="100vh" direction={"column"} overflow="hidden">
       <MainMenu></MainMenu>
       <Flex flexDirection={"column"} align="center">
         <Flex

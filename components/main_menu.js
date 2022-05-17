@@ -15,37 +15,67 @@ function MainMenu() {
   const { user, logout } = useAuth();
   const router = useRouter();
   return (
-    <Flex
-      sx={{
-        position: "-webkit-sticky",
-        /* Safari */ position: "sticky",
-        top: "0",
-      }}
+    
+    <Flex 
+    sx={{
+      position: "-webkit-sticky",
+      /* Safari */ position: "sticky",
+      top: "0",
+    }}
+    bgColor="purple.200"
+    ml={4}
+    mr={4}
     >
-      <Menu>
-        <MenuButton boxSize={"2em"} as={HamburgerIcon}>
+      <Menu >
+        <MenuButton boxSize={"2em"} as={HamburgerIcon}_hover={{background:"purple.400",color:"white"}}>
           Menu
         </MenuButton>
 
-        <MenuList>
+        <MenuList over >
           <Link href={"/"} passHref>
-            <MenuItem icon={<Icon as={FaHome} />}>Home </MenuItem>
+            <MenuItem
+              _hover={{ background: "purple.300",color:"white" }}
+              fontWeight="bold"
+              icon={<Icon as={FaHome} />}
+            >
+              Home{" "}
+            </MenuItem>
           </Link>
 
           <Link href={"/calendar"} passHref>
-            <MenuItem icon={<Icon as={FaCalendarAlt} />}>Calendar </MenuItem>
+            <MenuItem
+              _hover={{ background: "purple.300",color:"white" }}
+              fontWeight="bold"
+              icon={<Icon as={FaCalendarAlt} />}
+            >
+              Calendar{" "}
+            </MenuItem>
           </Link>
 
           <Link href={"/gear"} passHref>
-            <MenuItem icon={<Icon as={FaGuitar} />}>Gear </MenuItem>
+            <MenuItem
+              _hover={{ background: "purple.300",color:"white" }}
+              fontWeight="bold"
+              icon={<Icon as={FaGuitar} />}
+            >
+              Gear{" "}
+            </MenuItem>
           </Link>
 
           <Link href={"/profile"} passHref>
-            <MenuItem icon={<Icon as={FaUserAlt} />}>My Profile </MenuItem>
+            <MenuItem
+              _hover={{ background: "purple.300",color:"white" }}
+              fontWeight="bold"
+              icon={<Icon as={FaUserAlt} />}
+            >
+              My Profile{" "}
+            </MenuItem>
           </Link>
 
           <MenuItem
+            _hover={{ background: "purple.300" , color:"white"}}
             icon={<Icon as={FaSignOutAlt} />}
+            fontWeight="bold"
             onClick={() => {
               logout();
               router.push("/login");

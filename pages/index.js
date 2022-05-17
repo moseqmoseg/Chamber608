@@ -9,18 +9,19 @@ import {
   Text,
   Image,
 } from "@chakra-ui/react";
-import { FaHome, FaCalendarAlt, FaGuitar, FaUserAlt } from "react-icons/fa";
 
 import MainMenu from "../components/main_menu";
 
 function Home() {
   return (
-    <Flex height="100vh" direction="column">
+    <Flex height="100vh" direction="column" overflow="hidden">
       <MainMenu></MainMenu>
 
+      
       <Center mt={10} paddingBottom={20}>
-        <SimpleGrid columns={2} spacing={7}>
+        <SimpleGrid columns={2} spacing={4}>
           <LinkBox
+         
             color={"white"}
             as="article"
             maxW="sm"
@@ -32,11 +33,11 @@ function Home() {
             _hover={{ boxShadow: "inner", brightness: "100%" }}
             style={{
               backgroundImage:
-                "url(' https://images.pexels.com/photos/6823616/pexels-photo-6823616.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
+                "url('https://i.postimg.cc/9FFbXrgT/calendar-Boxreal.png')",
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
-              height: "300px",
+              height: "270px",
             }}
           >
             <Flex direction={"column"} justify="center" fontSize="15.6px">
@@ -61,11 +62,11 @@ function Home() {
             _hover={{ boxShadow: "inner", brightness: "100%" }}
             style={{
               backgroundImage:
-                "url('https://images.pexels.com/photos/3357078/pexels-photo-3357078.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
+                "url('https://i.postimg.cc/8cwqFxVb/Untitled-500-270-px-300-270-px-325-270-px.png')",
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
-              height: "300px",
+              height: "270px",
             }}
           >
             <Flex direction={"column"} justify="center" fontSize="15.6px">
@@ -74,7 +75,7 @@ function Home() {
               </Heading>
               <Text>
                 Check out a detailed list of available gear,add new gear, check
-                to see if you have permission to use other member`s gear
+                to see if you have permission to use other members gear
               </Text>
             </Flex>
           </LinkBox>
@@ -91,11 +92,11 @@ function Home() {
             _hover={{ boxShadow: "inner", brightness: "100%" }}
             style={{
               backgroundImage:
-                "url('https://images.pexels.com/photos/7828315/pexels-photo-7828315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')",
+                "url('https://i.postimg.cc/BbSPJPgV/payment-Box.png')",
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
-              height: "300px",
+              height: "270px",
             }}
           >
             <Flex direction={"column"} justify="center" fontSize="15.6px">
@@ -118,11 +119,11 @@ function Home() {
             _hover={{ boxShadow: "inner", brightness: "100%" }}
             style={{
               backgroundImage:
-                "url('https://images.pexels.com/photos/3952228/pexels-photo-3952228.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
+                "url('https://i.postimg.cc/3JSBkYzq/profile-Boxreal.png')",
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
-              height: "300px",
+              height: "270px",
             }}
           >
             <Flex direction={"column"} justify="center" fontSize="15.6px">
