@@ -27,4 +27,4 @@ This section, powered by Firebase Auth and Firebase Storage, allows the user to 
 
 
 
-[![ezgif.com-gif-maker37456678c9b45834.gif](https://s8.gifyu.com/images/ezgif.com-gif-maker37456678c9b45834.gif)](https://gifyu.com/image/Sstla)
+[![ezgif.com-gif-maker293dbd422fc33278.gif](https://s8.gifyu.com/images/ezgif.com-gif-maker293dbd422fc33278.gif)](https://gifyu.com/image/Sx5Dl)
