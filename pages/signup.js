@@ -1,10 +1,19 @@
+/* eslint-disable react/no-children-prop */
+import { useAuth } from "../context/AuthContext";
+import { useRouter } from "next/router";
+import { useState, useRef } from "react";
+import { storage } from "../config/firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import {
   Flex,
   Box,
   FormControl,
   FormLabel,
   Input,
+  Icon,
+  IconButton,
   InputGroup,
+  InputLeftElement,
   HStack,
   InputRightElement,
   Stack,
@@ -14,23 +23,63 @@ import {
   useColorModeValue,
   Link,
 } from "@chakra-ui/react";
-import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import { useAuth } from "../context/AuthContext";
+import { FaCloudUploadAlt } from "react-icons/fa";
 
 function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { user, signup } = useAuth();
+  const [firstName, setfirstName] = useState("");
+  const [lastName, setlastName] = useState("");
+  
+
+  const router = useRouter();
+  const hiddenFileInput = useRef(null);
+
+  const { user, signup, updateUser } = useAuth();
+  const imagesRef = ref(storage, "images");
+  const storageRef = ref(storage, `images/${firstName} ${lastName}`);
 
   const handleSubmit = async (e) => {
     try {
       await signup(email, password);
     } catch (error) {
       console.log(error);
+    } finally {
+      uploadBytes(
+        storageRef,
+        document.getElementById("uploader").files[0]
+      ).then(() => {
+        console.log("Picture has been uploaded successfully");
+        getDownloadURL(storageRef)
+        .then((url) => {
+          updateUser(firstName, lastName, url).then(()=>{
+            console.log("User created and updated successfully");
+            
+
+          }).catch((error)=>{
+            console.log(error);
+          })
+          
+        })
+        .catch((error) => {
+         console.log("Failed to update user ");
+         console.log(error);
+        });
+      });
+      
+
+      router.push("/login");
     }
-    console.log(email, password);
+  };
+
+  const handleClick = (event) => {
+    hiddenFileInput.current.click();
+  };
+
+  const handleUpload = (event) => {
+    console.log(event.target.files[0]);
   };
 
   return (
@@ -60,13 +109,42 @@ function Signup() {
               <Box>
                 <FormControl id="firstName" isRequired>
                   <FormLabel>First Name</FormLabel>
-                  <Input type="text" />
+                  <Input
+                    type="text"
+                    onChange={(e) => {
+                      setfirstName(e.target.value);
+                    }}
+                    required 
+                  />
                 </FormControl>
               </Box>
               <Box>
                 <FormControl id="lastName">
                   <FormLabel>Last Name</FormLabel>
-                  <Input type="text" />
+                  <Input
+                    type="text"
+                    onChange={(e) => {
+                      setlastName(e.target.value);
+                    }}
+                    required 
+                  />
+                </FormControl>
+              </Box>
+              <Box>
+                <FormControl mt={8}>
+                  <Input
+                    id="uploader"
+                    ref={hiddenFileInput}
+                    type="file"
+                    style={{ display: "none" }}
+                    onChange={(e) => {}}
+                  ></Input>
+                  <IconButton
+                    onClick={handleClick}
+                    aria-label="Search database"
+                    icon={<Icon as={FaCloudUploadAlt} />}
+
+                  />
                 </FormControl>
               </Box>
             </HStack>
@@ -78,6 +156,8 @@ function Signup() {
                   setEmail(e.target.value);
                 }}
                 type="email"
+                required
+                placeholder="youremail@email.com"
               />
             </FormControl>
             <FormControl id="password" isRequired>
@@ -89,6 +169,8 @@ function Signup() {
                     setPassword(e.target.value);
                   }}
                   type={showPassword ? "text" : "password"}
+                  placeholder="********"
+                  required
                 />
                 <InputRightElement h={"full"}>
                   <Button

@@ -61,13 +61,13 @@ function Inventory() {
     <Flex direction="column">
       <TableContainer>
         <Table colorScheme="purple" variant="striped" border="red">
-          <TableCaption placement="top">Equipment List</TableCaption>
+          <TableCaption backgroundColor="purple.300" placement="top" fontWeight="bolder" fontSize="large">Equipment List</TableCaption>
           <Thead>
-            <Tr>
-              <Th>Type</Th>
-              <Th>Model</Th>
-              <Th>Amount</Th>
-              <Th>Owner</Th>
+            <Tr backgroundColor="purple.200">
+              <Th >Type</Th>
+              <Th >Model</Th>
+              <Th >Amount</Th>
+              <Th >Owner</Th>
             </Tr>
           </Thead>
 

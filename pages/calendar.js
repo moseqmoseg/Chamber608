@@ -4,10 +4,9 @@ import MainCalendar from "../components/main_calendar";
 
 function Calendar() {
   return (
-    <Flex height="100vh" direction="column" overflow="hidden" >
+    <Flex height="100vh" direction="column" overflow="hidden">
       <MainMenu></MainMenu>
-
-      <Center m={20} mt={10} >
+      <Center m={20} mt={10}>
         <MainCalendar></MainCalendar>
       </Center>
     </Flex>

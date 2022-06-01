@@ -9,19 +9,24 @@ import {
   Text,
   Image,
 } from "@chakra-ui/react";
+import { useAuth } from "../context/AuthContext";
 
 import MainMenu from "../components/main_menu";
 
 function Home() {
+  const { user, signup, updateUser } = useAuth();
+
+  const laloCura = () => {
+    updateUser("chico", "bonito");
+    console.log(user);
+  };
   return (
     <Flex height="100vh" direction="column" overflow="hidden">
       <MainMenu></MainMenu>
 
-      
       <Center mt={10} paddingBottom={20}>
         <SimpleGrid columns={2} spacing={4}>
           <LinkBox
-         
             color={"white"}
             as="article"
             maxW="sm"

@@ -35,13 +35,10 @@ const MainCalendar = () => {
             "6imscvc8son2g9n8vpb09mhtj8@group.calendar.google.com",
         }}
         timeZone="Europe/Berlin"
-        initialView= 'timeGridWeek'
+        initialView="timeGridWeek"
         eventColor={"#7f5ad6"}
         editable
         selectable
-        
-        
-        
         nowIndicator={true}
         // titleFormat={{ day: "2-digit", month: "short", year: "numeric" }}
         customButtons={{
@@ -58,8 +55,11 @@ const MainCalendar = () => {
           setselectedTime(info.dateStr);
           console.log(selectedTime);
         }}
-        headerToolbar={{left:"myCustomButton" ,center:'title', right:"prev,next"  }}
-        
+        headerToolbar={{
+          left: "myCustomButton",
+          center: "title",
+          right: "prev,next",
+        }}
       />
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -94,7 +94,6 @@ const MainCalendar = () => {
             <Button
               onClick={() => {
                 onClose();
-                fe
               }}
               colorScheme="purple"
               mr={3}
